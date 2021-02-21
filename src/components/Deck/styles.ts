@@ -36,5 +36,6 @@ export const HardContainer = styled(EasyContainer)`
   @media (min-width: 768px) {
     grid-template-columns: repeat(8, 90px);
     grid-template-rows: repeat(5, 90px);
+    gap: 20px;
   }
 `;
