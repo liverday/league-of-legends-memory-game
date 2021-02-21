@@ -29,7 +29,12 @@ export const Back = styled(Flippable)`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
+  font-size: 16px;
+
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
+
   color: #000;
 `;
 

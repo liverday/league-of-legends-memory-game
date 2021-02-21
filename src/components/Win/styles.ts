@@ -1,7 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  margin-top: 50px;
+  margin-top: 20px;
+
+  @media (min-width: 768px) {
+    margin-top: 50px;
+  }
+
   display: flex;
   flex-flow: column nowrap;
   align-items: center;

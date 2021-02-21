@@ -33,7 +33,7 @@ const Deck: React.FC<DeckProps> = ({ onWin }) => {
   const handleCardClicked = useCallback(
     (card: ICard) => {
       flipCard(card);
-      if (selectedCard) {
+      if (selectedCard && selectedCard.id !== card.id) {
         addFlip();
       }
     },
