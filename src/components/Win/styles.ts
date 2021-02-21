@@ -29,4 +29,9 @@ export const Container = styled.div`
       font-weight: normal;
     }
   }
+
+  button {
+    margin-top: 20px;
+    width: 100%;
+  }
 `;

@@ -38,8 +38,8 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  width: 120px;
-  height: 120px;
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
   position: relative;
 

@@ -29,6 +29,7 @@ export const GameContextProvider: React.FC = ({ children }) => {
     (newGameState: GameState) => {
       if (newGameState === 'play' && level) {
         initializeCards(level);
+        setFlips(0);
       }
 
       setGameState(newGameState);

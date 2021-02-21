@@ -9,11 +9,11 @@ export const EasyContainer = styled.div`
 `;
 
 export const MediumContainer = styled(EasyContainer)`
-  grid-template-columns: repeat(6, 120px);
-  grid-template-rows: repeat(5, 120px);
+  grid-template-columns: repeat(6, 90px);
+  grid-template-rows: repeat(5, 90px);
 `;
 
 export const HardContainer = styled(EasyContainer)`
-  grid-template-columns: repeat(8, 120px);
-  grid-template-rows: repeat(5, 120px);
+  grid-template-columns: repeat(8, 90px);
+  grid-template-rows: repeat(5, 90px);
 `;

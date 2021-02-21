@@ -5,6 +5,7 @@ import { Container } from './styles';
 import levels from '../../shared/config/levels';
 import { useGame } from '../../hooks/game';
 import { Level } from '../../shared/interfaces';
+import Button from '../Button';
 
 interface GameMenuProps {
   onStart(): void;
@@ -52,7 +53,7 @@ const GameMenu: React.FC<GameMenuProps> = ({ onStart }) => {
             <label htmlFor={name}>{label}</label>
           </div>
         ))}
-        <button type="submit">Começar</button>
+        <Button type="submit">Começar</Button>
       </form>
     </Container>
   );
