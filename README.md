@@ -1,4 +1,9 @@
-# <h1 align="center">![League of Legends Memory](.github/main.png)</h1>
+# Jogo da memória do League of Legends
+
+## ![League of Legends Memory](.github/main.png)
+
+
+## :page_facing_up: Sumário
 
 - :bulb: [Sobre](#sobre)
 - :computer: [Tecnologias](#techs)
