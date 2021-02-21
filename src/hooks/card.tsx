@@ -1,12 +1,13 @@
 import React, { useState, useCallback, useContext, createContext } from 'react';
 
-import { Card } from '../shared/interfaces';
+import { duplicate, shuffle, getCardsByLevel } from '../shared/utils';
+import { Card, Level } from '../shared/interfaces';
 
 interface CardContextData {
   cards: Card[];
-  selectedCard?: Card;
+  selectedCard: Card | null;
   flipCard(card: Card): void;
-  initializeCards(newCards: Card[]): void;
+  initializeCards(level: Level): void;
 }
 
 const CardContext = createContext({} as CardContextData);
@@ -57,6 +58,8 @@ export const CardContextProvider: React.FC = ({ children }) => {
     (card: Card) => {
       if (isMatching) return;
 
+      if (card.flipped) return;
+
       const newCards = [...cards];
       const cardIndex = newCards.findIndex(oldCard => oldCard.id === card.id);
 
@@ -78,12 +81,21 @@ export const CardContextProvider: React.FC = ({ children }) => {
     [selectedCard, cards, match, isMatching],
   );
 
-  const initializeCards = useCallback((newCards: Card[]) => {
+  const initializeCards = useCallback((level: Level) => {
+    const levelCards = getCardsByLevel(level);
+    const duplicatedCards = duplicate(levelCards);
+    const shuffleDuplicatedCards = shuffle(duplicatedCards);
+    const newCards = shuffleDuplicatedCards.map((card, index) => ({
+      id: index + 1,
+      ...card,
+    }));
     setCards(newCards);
   }, []);
 
   return (
-    <CardContext.Provider value={{ cards, initializeCards, flipCard }}>
+    <CardContext.Provider
+      value={{ cards, initializeCards, flipCard, selectedCard }}
+    >
       {children}
     </CardContext.Provider>
   );

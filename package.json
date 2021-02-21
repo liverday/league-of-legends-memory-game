@@ -10,11 +10,12 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "polished": "^4.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "3.4.1",
-    "typescript": "^3.8.3",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.1",
+    "typescript": "^3.8.3"
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.7",

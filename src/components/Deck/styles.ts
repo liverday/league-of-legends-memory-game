@@ -1,11 +1,19 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const EasyContainer = styled.div`
+  margin-top: 50px;
   display: grid;
   grid-template-columns: repeat(5, 120px);
   grid-template-rows: repeat(4, 120px);
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
   gap: 20px;
+`;
+
+export const MediumContainer = styled(EasyContainer)`
+  grid-template-columns: repeat(6, 120px);
+  grid-template-rows: repeat(5, 120px);
+`;
+
+export const HardContainer = styled(EasyContainer)`
+  grid-template-columns: repeat(8, 120px);
+  grid-template-rows: repeat(5, 120px);
 `;

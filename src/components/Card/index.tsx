@@ -7,20 +7,14 @@ interface CardProps extends ICard {
   onCardClicked(card: ICard): void;
 }
 
-const Card: React.FC<CardProps> = ({
-  id,
-  name,
-  flipped,
-  image,
-  onCardClicked,
-}) => {
+const Card: React.FC<CardProps> = ({ id, name, flipped, onCardClicked }) => {
   return (
     <Container
       flipped={flipped}
-      onClick={() => onCardClicked({ id, name, flipped, image })}
+      onClick={() => onCardClicked({ id, name, flipped })}
     >
       <Front>
-        <img src={image} alt={name} />
+        <img src={`/assets/${name}.png`} alt={name} />
       </Front>
       <Back>?</Back>
     </Container>

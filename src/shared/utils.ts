@@ -1,3 +1,6 @@
+import cards from './config/cards';
+import { Card, Level } from './interfaces';
+
 /* eslint-disable no-plusplus */
 export function shuffle(arr: any[]): any[] {
   const newArr = [...arr];
@@ -11,4 +14,10 @@ export function shuffle(arr: any[]): any[] {
 
 export function duplicate(arr: any[]): any[] {
   return [...arr, ...arr];
+}
+
+export function getCardsByLevel(level: Level): Card[] {
+  const shuffledCards = shuffle(cards);
+  const newCards = shuffledCards.filter((_, index) => index < level.cards);
+  return newCards;
 }

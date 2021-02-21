@@ -1,35 +1,33 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
+
 import Deck from '../../components/Deck';
+import GameMenu from '../../components/GameMenu';
+import Header from '../../components/Header';
+import Win from '../../components/Win';
 
-import { Container } from './styles';
+import { useGame } from '../../hooks/game';
 
-import cards from '../../shared/data';
-import { duplicate, shuffle } from '../../shared/utils';
-import { useCards } from '../../hooks/card';
-
-type GameState = 'start' | 'play' | 'won';
+import { Container, GameContainer } from './styles';
 
 const Game: React.FC = () => {
-  const { initializeCards } = useCards();
-  const [gameState, setGameState] = useState<GameState>('play');
-
-  useEffect(() => {
-    const duplicatedCards = duplicate(cards).map((card, i) => ({
-      id: i + 1,
-      ...card,
-    }));
-    const shuffledCards = shuffle(duplicatedCards);
-    initializeCards(shuffledCards);
-  }, [initializeCards]);
+  const { gameState, changeGameState } = useGame();
 
   const onWin = useCallback(() => {
-    setGameState('won');
-  }, []);
+    changeGameState('won');
+  }, [changeGameState]);
+
+  const onStart = useCallback(() => {
+    changeGameState('play');
+  }, [changeGameState]);
 
   return (
     <Container>
-      {gameState === 'play' && <Deck onWin={onWin} />}
-      {gameState === 'won' && <p style={{ color: '#fff' }}>You won!</p>}
+      <GameContainer>
+        <Header />
+        {gameState === 'start' && <GameMenu onStart={onStart} />}
+        {gameState === 'play' && <Deck onWin={onWin} />}
+        {gameState === 'won' && <Win />}
+      </GameContainer>
     </Container>
   );
 };

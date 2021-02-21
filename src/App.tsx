@@ -2,15 +2,15 @@ import React from 'react';
 
 import GlobalStyle from './styles/global';
 import Game from './pages/Game';
-import { CardContextProvider } from './hooks/card';
+import AppContextProvider from './hooks';
 
 const App: React.FC = () => {
   return (
     <>
       <GlobalStyle />
-      <CardContextProvider>
+      <AppContextProvider>
         <Game />
-      </CardContextProvider>
+      </AppContextProvider>
     </>
   );
 };
