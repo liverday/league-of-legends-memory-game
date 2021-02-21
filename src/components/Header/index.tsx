@@ -1,6 +1,5 @@
 import React from 'react';
 
-import logo from '../../assets/logo.png';
 import { useGame } from '../../hooks/game';
 
 import { Container, ScoreContainer } from './styles';
@@ -11,7 +10,7 @@ const Header: React.FC = () => {
   return (
     <Container>
       <div>
-        <img src={logo} alt="logo" />
+        <img src="/assets/logo.png" alt="logo" />
         <h1>
           <span>Jogo da</span>
           <span>Memória</span>
